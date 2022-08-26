@@ -1,15 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/App.scss';
-import getDataApi from './services/Api';
-
+import getDataApi from '../services/Api';
+import CharacterList from './CharacterList';
 
 
 function App () {
+  const [dataCharacters, setDataCharacters] = useState([])
 
   useEffect(() => {
 
     getDataApi().then((dataFromApi) => {
-      console.log(dataFromApi);
+      setDataCharacters(dataFromApi);
+
     })
   }, []);
 
@@ -30,8 +32,9 @@ function App () {
             <option>Hufflepuff</option>
           </select>
         </form>
-        <ul>
-        </ul>
+
+        <CharacterList characters={dataCharacters}></CharacterList>
+
       </main>
 
     </div>

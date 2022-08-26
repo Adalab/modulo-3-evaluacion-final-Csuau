@@ -3,12 +3,12 @@ const getDataApi = () => {
         .then(response => response.json())
         .then(data => {
 
-            const dataClean = data.map(({ image, name, species }, id) => {
+            const dataClean = data.map((character, id) => {
                 return {
                     id,
-                    photo: image,
-                    name,
-                    species,
+                    image: character.image,
+                    name: character.name,
+                    species: character.species,
                 }
             })
             return dataClean
