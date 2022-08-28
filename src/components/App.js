@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { matchPath, useLocation } from 'react-router';
 import '../styles/App.scss';
 import getDataApi from '../services/Api';
 import CharacterList from './CharacterList';
-
-
+import Filters from './Filters';
+import CharacterDetail from './CharacterDetail';
 function App () {
   const [dataCharacters, setDataCharacters] = useState([])
   const [filterName, setFilterName] = useState("")
@@ -15,15 +17,15 @@ function App () {
     })
   }, [filterHouse]);
 
-  const handleFilterName = (ev) => {
-    const inputValue = ev.target.value;
-    setFilterName(inputValue);
-  }
+  const { pathname } = useLocation();
+  const dataPath = matchPath('/character/:characterId', pathname);
+  const characterId = dataPath !== null ? dataPath.params.characterId : '';
+  const characterFound = dataCharacters.find((character) => {
 
-  const handleFilterHouse = (ev) => {
-    const inputValue = ev.target.value;
-    setFilterHouse(inputValue);
-  }
+    return character.id === characterId
+  });
+
+
 
   return (
     <div className="App">
@@ -31,19 +33,32 @@ function App () {
         <h1>Harry Potter</h1>
       </header>
       <main>
-        <form>
-          <label>Busca por personaje: </label>
-          <input value={filterName} onChange={handleFilterName}></input>
-          <label>Selecciona las casa: </label>
-          <select onChange={handleFilterHouse} value={filterHouse}>
-            <option value="gryffindor" >Gryffindor</option>
-            <option value="slytherin">Slytherin</option>
-            <option value="ravenclaw">Ravenclaw</option>
-            <option value="hufflepuff">Hufflepuff</option>
-          </select>
-        </form>
+        <Routes>
+          <Route path='/' element={
+            <>
+              <Filters
+                filterName={filterName}
+                setFilterName={setFilterName}
+                filterHouse={filterHouse}
+                setFilterHouse={setFilterHouse}
+              />
 
-        <CharacterList characters={dataCharacters} filterName={filterName}></CharacterList>
+              <CharacterList
+                characters={dataCharacters}
+                filterName={filterName}
+              />
+            </>}
+          />
+
+
+          <Route path='/character/:characterId'
+            element={<CharacterDetail character={characterFound} />} />
+
+
+
+        </Routes>
+
+
 
       </main>
 
