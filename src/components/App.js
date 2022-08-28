@@ -6,6 +6,7 @@ import CharacterList from './CharacterList';
 
 function App () {
   const [dataCharacters, setDataCharacters] = useState([])
+  const [filterName, setFilterName] = useState("")
 
   useEffect(() => {
 
@@ -15,6 +16,13 @@ function App () {
     })
   }, []);
 
+  const handleFilterName = (characters) => {
+    const inputValue = characters.target.value;
+    setFilterName(inputValue);
+
+  }
+
+
   return (
     <div className="App">
       <header>
@@ -23,7 +31,7 @@ function App () {
       <main>
         <form>
           <label>Busca por personaje: </label>
-          <input></input>
+          <input value={filterName} onChange={handleFilterName}></input>
           <label>Selecciona las casa: </label>
           <select>
             <option>Gryffindor</option>
@@ -33,7 +41,7 @@ function App () {
           </select>
         </form>
 
-        <CharacterList characters={dataCharacters}></CharacterList>
+        <CharacterList characters={dataCharacters} filterName={filterName}></CharacterList>
 
       </main>
 
