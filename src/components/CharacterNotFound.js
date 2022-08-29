@@ -2,7 +2,7 @@
 function CharacterNotFound (props) {
 
     return (
-        <p className=" textNotFound">No hay ningún personaje que coincida con la palabra {props.filterName}</p>
+        <p className=" main_textNotFound">No hay ningún personaje que coincida con la palabra {props.filterName}</p>
     )
 
 }

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import IconStatus from './IconStatus';
-
+import gryffindor from '../images/gryffindor.png'
 function CharacterDetail (props) {
 
 
@@ -28,6 +28,7 @@ function CharacterDetail (props) {
                 }
 
             </ul>
+            <img className='logo' src={gryffindor} alt="casa" />
 
         </section ></>
     )

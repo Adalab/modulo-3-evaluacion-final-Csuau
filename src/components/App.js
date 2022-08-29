@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 import '../styles/App.scss';
-
 import getDataApi from '../services/Api';
 import CharacterList from './CharacterList';
 import Filters from './Filters';
@@ -31,14 +30,13 @@ function App () {
 
 
   return (
-    <div >
+    <>
 
       <Routes>
         <Route path='/' element={
           <>
             <header className="header">
-
-              <h1 className='title'>Harry Potter</h1>
+              <h1 className='header_title'>Harry Potter</h1>
             </header>
             <main className='main'>
               <Filters
@@ -65,16 +63,13 @@ function App () {
                 <CharacterDetail character={characterFound} />
               </main>
             </>} />
-
-
-
       </Routes>
 
+      <footer className='footer'>
+        <p className='textFooter'>HarryPotterCharacters © 2022</p>
+      </footer>
 
-
-
-
-    </div>
+    </>
   );
 }
 

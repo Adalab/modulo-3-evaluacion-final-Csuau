@@ -9,7 +9,7 @@ function CharacterCard (props) {
                     alt={`Foto de ${props.character.name}`}
                     title={`Foto de ${props.character.name}`}></img>
                 <div className=''>
-                    <h2 className='textBody textCharacterCard'> {props.character.name}</h2>
+                    <h2 className='textCharacterCard nameCard'> {props.character.name}</h2>
                     <p className='textCharacterCard'> {props.character.species}</p>
                 </div>
             </Link>

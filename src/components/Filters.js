@@ -13,17 +13,26 @@ function Filters ({ filterName, setFilterName, filterHouse, setFilterHouse }) {
         setFilterHouse(inputValue);
     }
 
+    const handleReset = (ev) => {
+        ev.preventDefault();
+        setFilterName('');
+        setFilterHouse("gryffindor");
+    }
 
-    return (<form className="form">
+    return (<form className="main_form ">
+
         <label>Busca por personaje: </label>
-        <input value={filterName} onChange={handleFilterName}></input>
+        <input className='main_textForm' value={filterName} onChange={handleFilterName}></input>
         <label>Selecciona las casa: </label>
-        <select onChange={handleFilterHouse} value={filterHouse}>
+        <select className='main_textForm' onChange={handleFilterHouse} value={filterHouse}>
             <option value="gryffindor" >Gryffindor</option>
             <option value="slytherin">Slytherin</option>
             <option value="ravenclaw">Ravenclaw</option>
             <option value="hufflepuff">Hufflepuff</option>
         </select>
+        <button className="resetButton" onClick={handleReset}>
+            <i className="trashIcon fa-solid fa-trash-can"> </i> Reset
+        </button>
     </form>)
 
 

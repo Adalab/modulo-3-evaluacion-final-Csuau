@@ -6,7 +6,8 @@
 
 .header {
     background-image: url('/images/header_.jpg');
-    height: 60vh;
+    height: 50vh;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -15,29 +16,31 @@
     align-items: center;
     position: relative;
 
+    ::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.169);
+
+    }
+
+    &_title {
+
+        font-family: 'Dancing Script', cursive;
+        font-size: 100px;
+        font-weight: bold;
+        color: aliceblue;
+        z-index: 2;
+
+    }
+
 }
 
-.header::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.169);
 
-}
-
-.title {
-
-    font-family: 'Dancing Script', cursive;
-    font-size: 100px;
-    font-weight: bold;
-    color: aliceblue;
-    z-index: 2;
-
-}
 
 .main {
     background-color: #d7e9e1;
@@ -46,34 +49,77 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 30px;
+
+    &_form {
+        display: flex;
+        align-items: baseline;
+        font-size: 30px;
+        font-weight: bold;
+        gap: 20px;
+        padding: 40px;
+        margin: 40px;
+
+        @media all and(max-width:900px) {
+            font-size: 20px;
+            padding: 20px;
+        }
+
+    }
+
+    &_textForm {
+        font-size: 20px;
+        font-family: 'Dancing Script', cursive;
+        border: none;
+        border: 5px solid #c8bf98;
+        border-radius: 10px;
+
+
+    }
+
+    &_textNotFound {
+        grid-column: 1/5;
+        color: rgb(177, 83, 177);
+        font-size: 30px;
+    }
 }
 
-.form {
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
-    gap: 20px;
-    padding: 40px;
-}
-
-.textNotFound {
-    grid-column: 1/5;
-    color: rgb(177, 83, 177);
+.resetButton {
+    border: 5px solid #c8bf98;
+    border-radius: 15px;
+    background-color: #c8bf98;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
     font-size: 30px;
+    padding: 0 20px 0 20px;
+    margin-left: 30px;
+
+
 }
 
-.textBody {
-    font-size: 25px;
-    font-weight: 500;
-}
 
 .characterList {
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
-    max-width: 75vw;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media all and(max-width:900px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
 }
+
+
+
+.nameCard {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
 
 .littleImg {
     width: 100%;
@@ -118,25 +164,36 @@
 
 .mainDetail {
     background-color: grey;
-    min-height: 70vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 50px;
     font-family: 'Dancing Script', cursive;
+    padding-bottom: 20px;
+
+    @media all and(max-width:900px) {
+        gap: 10px;
+    }
 }
 
 .sectionDetail {
     background-color: white;
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 50px;
     border: 10px solid white;
     border-radius: 10px;
     width: 50%;
 
+    @media all and(max-width:900px) {
+        flex-direction: column;
+        gap: 10px;
 
+
+    }
 
 }
 
@@ -144,6 +201,7 @@
     text-decoration: none;
     color: white;
     font-size: 25px;
+    padding-top: 20px;
 
 }
 
@@ -151,13 +209,31 @@
     font-size: 50px;
     font-weight: bold;
     text-decoration: underline;
+
+    @media all and(max-width:900px) {
+        font-size: 30px;
+    }
 }
 
 .textDetail {
     font-size: 40px;
+
+    @media all and(max-width:900px) {
+        font-size: 25px;
+    }
 }
 
 .statusIcon {
 
     transform: translateY(15px) scale(0.65);
+}
+
+.footer {
+    height: 10vh;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+
 }
