@@ -136,12 +136,7 @@
     object-position: top;
 }
 
-.detailImg {
-    width: 210px;
-    height: 250px;
-    object-fit: cover;
-    object-position: top;
-}
+
 
 .characterCard {
     background-color: #c8bf98;
@@ -205,6 +200,7 @@
 
 }
 
+
 .linkReturn {
     text-decoration: none;
     color: white;
@@ -213,8 +209,15 @@
 
 }
 
+.detailImg {
+    width: 210px;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+}
+
 .nameCardDetail {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     text-decoration: underline;
 
@@ -224,7 +227,7 @@
 }
 
 .textDetail {
-    font-size: 40px;
+    font-size: 30px;
 
     @media all and(max-width:900px) {
         font-size: 25px;

@@ -12,6 +12,7 @@ function App () {
   const [dataCharacters, setDataCharacters] = useState([])
   const [filterName, setFilterName] = useState("")
   const [filterHouse, setFilterHouse] = useState("gryffindor")
+  const [characterFound, setCharacterFound] = useState(null)
 
   useEffect(() => {
     getDataApi(filterHouse).then((dataFromApi) => {
@@ -20,14 +21,19 @@ function App () {
   }, [filterHouse]);
 
   const { pathname } = useLocation();
-  const dataPath = matchPath('/character/:characterId', pathname);
-  const characterId = dataPath !== null ? dataPath.params.characterId : '';
-  const characterFound = dataCharacters.find((character) => {
 
-    return character.id === characterId
-  });
+  useEffect(() => {
+    const dataPath = matchPath('/character/:characterId', pathname);
+    const characterId = dataPath !== null ? dataPath.params.characterId : '';
+    setCharacterFound(null)
 
-
+    if (characterId && dataCharacters.length > 0) {
+      const _characterFound = dataCharacters.find((character) => {
+        return character.id === characterId
+      });
+      setCharacterFound(_characterFound)
+    }
+  }, [pathname, dataCharacters])
 
   return (
     <>
@@ -49,6 +55,7 @@ function App () {
               <CharacterList
                 characters={dataCharacters}
                 filterName={filterName}
+
               />
             </main>
           </>}
@@ -60,7 +67,14 @@ function App () {
             <>
               <header className='headerDetail'></header>
               <main className='mainDetail'>
-                <CharacterDetail character={characterFound} />
+                {
+                  characterFound && (
+                    <CharacterDetail
+                      character={characterFound}
+                      filterHouse={filterHouse}
+                    />
+                  )
+                }
               </main>
             </>} />
       </Routes>
