@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 import '../styles/App.scss';
+
 import getDataApi from '../services/Api';
 import CharacterList from './CharacterList';
 import Filters from './Filters';
 import CharacterDetail from './CharacterDetail';
+
 function App () {
+
   const [dataCharacters, setDataCharacters] = useState([])
   const [filterName, setFilterName] = useState("")
   const [filterHouse, setFilterHouse] = useState("gryffindor")
@@ -29,13 +32,15 @@ function App () {
 
   return (
     <div className="App">
-      <header>
-        <h1>Harry Potter</h1>
-      </header>
-      <main>
-        <Routes>
-          <Route path='/' element={
-            <>
+
+      <Routes>
+        <Route path='/' element={
+          <>
+            <header className="header">
+
+              <h1 className='title'>Harry Potter</h1>
+            </header>
+            <main className='main'>
               <Filters
                 filterName={filterName}
                 setFilterName={setFilterName}
@@ -47,20 +52,21 @@ function App () {
                 characters={dataCharacters}
                 filterName={filterName}
               />
-            </>}
-          />
+            </main>
+          </>}
+        />
 
 
-          <Route path='/character/:characterId'
-            element={<CharacterDetail character={characterFound} />} />
-
-
-
-        </Routes>
+        <Route path='/character/:characterId'
+          element={<CharacterDetail character={characterFound} />} />
 
 
 
-      </main>
+      </Routes>
+
+
+
+
 
     </div>
   );

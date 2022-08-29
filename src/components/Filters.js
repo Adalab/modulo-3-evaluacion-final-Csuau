@@ -1,8 +1,9 @@
-
+import '../styles/App.scss';
 
 function Filters ({ filterName, setFilterName, filterHouse, setFilterHouse }) {
 
     const handleFilterName = (ev) => {
+        ev.preventDefault();
         const inputValue = ev.target.value;
         setFilterName(inputValue);
     }
@@ -13,7 +14,7 @@ function Filters ({ filterName, setFilterName, filterHouse, setFilterHouse }) {
     }
 
 
-    return (<form>
+    return (<form className="form">
         <label>Busca por personaje: </label>
         <input value={filterName} onChange={handleFilterName}></input>
         <label>Selecciona las casa: </label>

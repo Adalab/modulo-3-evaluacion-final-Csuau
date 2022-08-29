@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 function CharacterCard (props) {
     return (
-        <li>
+        <li className='characterCard'>
             <Link to={`/character/${props.character.id}`}>
-                <img
+                <img className='littleImg'
                     src={props.character.image}
                     alt={`Foto de ${props.character.name}`}
                     title={`Foto de ${props.character.name}`}></img>

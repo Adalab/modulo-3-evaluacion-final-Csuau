@@ -15,6 +15,8 @@ const getDataApi = (filterHouse) => {
                     gender: getTranslation(character.gender),
                     house: character.house,
                     status: getTranslation(character.alive ? "alive" : "dead"),
+                    alternate_names: character.alternate_names,
+                    alive: character.alive
 
 
                 }
