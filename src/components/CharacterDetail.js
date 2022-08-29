@@ -5,17 +5,18 @@ function CharacterDetail (props) {
 
 
 
-    return (
-        <section style={{
+    return (<>
+        <Link to={'/'} className='linkReturn'>Volver al listado</Link>
+        <section className='sectionDetail' style={{
             '--house': `${props.character.house}`
         }}>
-            <Link to={'/'}>Volver al listado</Link>
-            <img
+
+            <img className='detailImg'
                 src={props.character.image}
                 alt={`Foto de ${props.character.name}`}
                 title={`Foto de ${props.character.name}`}></img>
-            <ul>
-                <li>{props.character.name} </li>
+            <ul className='textDetail'>
+                <li className='nameCardDetail'>{props.character.name} </li>
                 <li>Estatus: {props.character.status} <IconStatus status={props.character.alive} /> </li>
                 <li>Especie: {props.character.species}</li>
                 <li>Género: {props.character.gender}</li>
@@ -28,6 +29,7 @@ function CharacterDetail (props) {
 
             </ul>
 
-        </section >)
+        </section ></>
+    )
 }
 export default CharacterDetail;

@@ -1,9 +1,11 @@
 @import 'reset.scss';
-:root{
+
+:root {
     --house:
 }
-.header{
-    background-image:url('/images/header_.jpg');
+
+.header {
+    background-image: url('/images/header_.jpg');
     height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,7 +16,8 @@
     position: relative;
 
 }
-.header::before{
+
+.header::before {
     content: "";
     position: absolute;
     height: 100%;
@@ -23,43 +26,138 @@
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.169);
-    
+
 }
-.title{   
-   
+
+.title {
+
     font-family: 'Dancing Script', cursive;
     font-size: 100px;
     font-weight: bold;
     color: aliceblue;
-z-index: 2;
+    z-index: 2;
 
 }
-.main{
-     background-color:#d7e9e1;
-     min-height: 40vh;
-font-family: 'Dancing Script', cursive;
-display: flex;
-flex-direction: column;
-align-items: center;
+
+.main {
+    background-color: #d7e9e1;
+    min-height: 40vh;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.form{
-display: flex;
-justify-content: center;
-font-size: 40px;
-gap:20px;
-
-padding: 40px;
-}
-.textBody{
-font-size: 30px;
+.form {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    gap: 20px;
+    padding: 40px;
 }
 
-.characterList{
+.textNotFound {
+    grid-column: 1/5;
+    color: rgb(177, 83, 177);
+    font-size: 30px;
+}
+
+.textBody {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.characterList {
     list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    max-width: 75vw;
 }
-.littleImg{
-    width:210px;
+
+.littleImg {
+    width: 100%;
     height: 295px;
+    object-fit: cover;
+    object-position: top;
 }
-.character
+
+.detailImg {
+    width: 210px;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.characterCard {
+    background-color: #c8bf98;
+    padding-bottom: 20px;
+    font-size: 20px;
+    max-width: 240px;
+
+}
+
+.characterCard>* {
+    text-decoration: none;
+}
+
+.textCharacterCard {
+    color: black;
+    text-align: center;
+    padding: 15px;
+
+}
+
+.headerDetail {
+    background-image: url('/images/headerDetail.png');
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.mainDetail {
+    background-color: grey;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.sectionDetail {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    border: 10px solid white;
+    border-radius: 10px;
+    width: 50%;
+
+
+
+}
+
+.linkReturn {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+
+}
+
+.nameCardDetail {
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.textDetail {
+    font-size: 40px;
+}
+
+.statusIcon {
+
+    transform: translateY(15px) scale(0.65);
+}

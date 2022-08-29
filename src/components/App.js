@@ -31,7 +31,7 @@ function App () {
 
 
   return (
-    <div className="App">
+    <div >
 
       <Routes>
         <Route path='/' element={
@@ -58,7 +58,13 @@ function App () {
 
 
         <Route path='/character/:characterId'
-          element={<CharacterDetail character={characterFound} />} />
+          element={
+            <>
+              <header className='headerDetail'></header>
+              <main className='mainDetail'>
+                <CharacterDetail character={characterFound} />
+              </main>
+            </>} />
 
 
 

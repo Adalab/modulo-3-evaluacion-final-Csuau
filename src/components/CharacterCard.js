@@ -8,8 +8,10 @@ function CharacterCard (props) {
                     src={props.character.image}
                     alt={`Foto de ${props.character.name}`}
                     title={`Foto de ${props.character.name}`}></img>
-                <h4 >{props.character.name}</h4>
-                <p >{props.character.species}</p>
+                <div className=''>
+                    <h2 className='textBody textCharacterCard'> {props.character.name}</h2>
+                    <p className='textCharacterCard'> {props.character.species}</p>
+                </div>
             </Link>
         </li>
     )

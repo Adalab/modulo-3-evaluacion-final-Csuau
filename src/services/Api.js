@@ -9,14 +9,14 @@ const getDataApi = (filterHouse) => {
             const dataClean = data.map((character, id) => {
                 return {
                     id: id.toString(),
-                    image: character.image || "https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter",
+                    image: character.image || "https://pbs.twimg.com/media/El-LN4gW0AARLEs.jpg",
                     name: character.name,
                     species: getTranslation(character.species),
                     gender: getTranslation(character.gender),
                     house: character.house,
                     status: getTranslation(character.alive ? "alive" : "dead"),
                     alternate_names: character.alternate_names,
-                    alive: character.alive
+                    alive: character.alive,
 
 
                 }
