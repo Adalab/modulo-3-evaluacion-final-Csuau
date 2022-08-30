@@ -44,7 +44,7 @@ function CharacterDetail (props) {
                 }
 
             </ul>
-            <img className='' src={`/images/${props.filterHouse}.png`} alt="house" />
+            <img className='' src={`./images/${props.filterHouse}.png`} alt="house" />
 
         </section ></>
     )
