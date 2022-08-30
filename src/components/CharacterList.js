@@ -1,3 +1,4 @@
+
 import '../styles/App.scss'
 import CharacterCard from "./CharacterCard";
 import CharacterNotFound from "./CharacterNotFound";
@@ -12,7 +13,14 @@ function CharacterList (props) {
                 return character;
             }
         })
+
+        .sort((a, b) => {
+
+            return (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0;
+        })
+
         .map((character) => {
+
             return (<CharacterCard key={character.id} character={character} />)
         })
     return (
